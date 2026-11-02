@@ -1,0 +1,55 @@
+[project]
+name = "spec2mol"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = []
+
+[tool.uv]
+package = false
+default-groups = ["dev", "research", "test"]
+
+[dependency-groups]
+# Needed by CI and the git hooks whichever stack you use.
+dev = [
+    "pytest",
+    "ruff"
+]
+test = [
+    "numpy",
+    "rdkit==2026.3.3"
+]
+research = [
+    "gpustat",
+    "matplotlib",
+    "numpy",
+    "pandas",
+    "wandb",
+    "biopython==1.88",
+    "matchms==0.33.1",
+    "pyarrow==25.0.0",
+    "pyteomics==5.0.1",
+    "pyopenms==3.6.0",
+    "rdkit==2026.3.3",
+    "scikit-learn==1.9.1",
+    "torch==2.13.0",
+]
+
+[tool.ruff]
+line-length = 120
+# Honour these settings even when lint-staged passes explicit file paths.
+force-exclude = true
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "F",   # pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+    "NPY", # NumPy-specific rules
+]
+# The formatter already wraps at line-length; E501 only fires on what it cannot split.
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

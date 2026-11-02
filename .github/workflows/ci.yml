@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  UV_LOCKED: '1'
+  # `uv run` uses the environment from "Install Python dependencies" instead of syncing every default group.
+  UV_NO_SYNC: '1'
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v10.3.3
+        with:
+          enable-cache: true
+
+      - name: Install Python dependencies
+        run: uv sync --no-default-groups --group dev --group test
+
+      - name: Install formatters
+        run: npm ci --ignore-scripts
+
+      - name: Check Prettier and Ruff formatting
+        run: npm run format:check
+
+      - name: Run pytest
+        run: uv run pytest

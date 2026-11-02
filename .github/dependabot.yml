@@ -1,0 +1,38 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      npm:
+        patterns:
+          - '*'
+
+  - package-ecosystem: uv
+    directory: /
+    schedule:
+      interval: monthly
+    ignore:
+      - dependency-name: biopython
+      - dependency-name: matchms
+      - dependency-name: pyarrow
+      - dependency-name: pyteomics
+      - dependency-name: pyopenms
+      - dependency-name: rdkit
+      - dependency-name: scikit-learn
+      - dependency-name: torch
+
+    groups:
+      uv:
+        patterns:
+          - '*'
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      github-actions:
+        patterns:
+          - '*'
