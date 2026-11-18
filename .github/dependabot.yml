@@ -16,9 +16,10 @@ updates:
     ignore:
       - dependency-name: biopython
       - dependency-name: matchms
+      - dependency-name: myopic-mces
       - dependency-name: pyarrow
-      - dependency-name: pyteomics
       - dependency-name: pyopenms
+      - dependency-name: pyteomics
       - dependency-name: rdkit
       - dependency-name: scikit-learn
       - dependency-name: torch
