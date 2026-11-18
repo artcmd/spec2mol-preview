@@ -8,7 +8,7 @@ De novo structure elucidation from MS/MS spectra. We design a new decoder and re
 | -------------- | ------------------------------------------------------------------------------------------------- | -------: | -------: | -----------: | --------: | --------: | ------------: |
 | FRIGID-base    | [v2026.08.20](https://github.com/coleygroup/FRIGID/tree/d242a2c06d671e0fb6fbc1a5b31f0e19e24b456d) |     16.1 |     15.0 |         0.41 |      18.2 |      12.0 |          0.46 |
 | FRIGID-refined | [v2026.08.20](https://github.com/coleygroup/FRIGID/tree/d242a2c06d671e0fb6fbc1a5b31f0e19e24b456d) |     18.3 |     13.5 |         0.43 |      22.0 |      11.7 |          0.47 |
-| MS-GPT         | [v2026.07.26](https://arxiv.org/pdf/2607.23607v1)                                                 |     23.9 |     15.5 |        0.352 |      28.7 |      11.7 |          0.54 |
+| MS-GPT         | [v2026.07.26](https://arxiv.org/pdf/2607.23607v1)                                                 |     23.9 |     15.5 |         0.52 |      28.7 |      11.7 |          0.54 |
 | Ours-base      | v2026.10.16                                                                                       |     28.5 |      8.0 |         0.58 |      38.6 |       6.5 |          0.64 |
 | GEMS           | [v2026.10.16](https://arxiv.org/pdf/2610.23617v1)                                                 |     30.2 |      9.7 |         0.55 |      41.3 |       8.3 |          0.61 |
 | Ours-base      | v2026.11.12                                                                                       |     32.4 |      7.3 |         0.62 |      44.5 |       6.0 |          0.69 |
